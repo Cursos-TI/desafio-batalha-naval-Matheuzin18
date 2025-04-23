@@ -1,62 +1,59 @@
 #include <stdio.h>
 
-
 int main() {
+
+    #define LINHAS 11 //Definir número de linhas
+    #define COLUNAS 11 //Definir número de colunas
+
     int linha, coluna;
-    char * tabuleiro[11][11] = 
+    char * tabuleiro[LINHAS][COLUNAS] =  //Criar tabuleiro vazio
     {
         {" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"},
         {"1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
         {"2", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
         {"3", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
-        {"4", "0", "0", "0", "0", "0", "3", "0", "0", "0", "0"},
-        {"5", "0", "0", "0", "0", "0", "3", "0", "0", "0", "0"},
-        {"6", "0", "0", "0", "0", "0", "3", "0", "0", "0", "0"},
-        {"7", "0", "0", "3", "3", "3", "0", "0", "0", "0", "0"},
+        {"4", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
+        {"5", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
+        {"6", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
+        {"7", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
         {"8", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
         {"9", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
         {"10", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"}
     };
 
-    printf("  TABULEIRO BATALHA NAVAL:\n\n");
 
-    for (linha = 0; linha < 11; linha++) {
-        for (coluna = 0; coluna < 11; coluna++) {
-            printf("%3s", tabuleiro[linha][coluna]);
+    // Posicionar navio vertical
+    tabuleiro[5][1] = "3"; //A5
+    tabuleiro[6][1] = "3"; //A6
+    tabuleiro[7][1] = "3"; //A7
+
+    // Posicionar navio horizontal
+    tabuleiro[10][4] = "3"; //D10
+    tabuleiro[10][5] = "3"; //E10
+    tabuleiro[10][6] = "3"; //F10
+
+    // Posicionar navio diagonal
+    tabuleiro[9][7] = "3"; //G9
+    tabuleiro[8][8] = "3"; //H8
+    tabuleiro[7][9] = "3"; //I7
+
+    //Posicionar navio diagonal
+    tabuleiro[1][1] = "3"; //A1
+    tabuleiro[2][2] = "3"; //B2
+    tabuleiro[3][3] = "3"; //C3
+
+
+    printf("       TABULEIRO BATALHA NAVAL:\n\n"); //Exibir mensagem antes do tabuleiro
+
+    for (linha = 0; linha < LINHAS; linha++) 
+    {
+        for (coluna = 0; coluna < COLUNAS; coluna++) 
+        {
+            printf("%3s", tabuleiro[linha][coluna]); // Exibir as linhas e as colunas para formar o tabuleiro com um espaçamento
         }
         printf("\n\n");
     }
 
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
-
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
-
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
 
     return 0;
 }
